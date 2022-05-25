@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import TableRow from "./TableRow";
 class Table extends Component {
     constructor(props) {
         super(props);
@@ -14,11 +14,12 @@ class Table extends Component {
         this.getStudentsList();
     }
     getStudentsList = () => {
+        let self = this;
         axios.get("/get/student/list").then(function (response) {
-            console.log(response);
-            // self.setState({
-            //     employees: response.data,
-            // });
+            //console.log(response.data);
+            self.setState({
+                students: response.data,
+            });
         });
     };
 
@@ -37,32 +38,18 @@ class Table extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
+                        {this.state.students.map(function (x, i) {
+                            return <TableRow key={i} data={x} />;
+                        })}
+
+                        {/* <tr>
                             <th scope="row">3</th>
                             <td colSpan={2}>Larry the Bird</td>
                             <td>@twitter</td>
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                        </tr>
+                        </tr> */}
                     </tbody>
                 </table>
             </div>

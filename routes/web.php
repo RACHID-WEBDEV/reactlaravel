@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/get/student/list', 
-        [StudentController::class, 'getstudentList'])->name('student.list');
+        [StudentController::class, 'getStudentList'])->name('student.list');
 
 Route::post('/get/individual/student/details',
         [StudentController::class, 'getstudentDetails'])->name('student.details');

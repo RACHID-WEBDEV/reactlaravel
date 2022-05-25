@@ -11,12 +11,12 @@ class StudentController extends Controller
 {
     // Get Student List from database.
 
-    public function getStudentList()
+    public function getStudentList()    
     {
         try
         {
            $students = Student::orderBy('id', 'DESC')->get();
-            return response()->json($employees);
+            return response()->json($students);
         }
         catch(Exception $e)
         {
