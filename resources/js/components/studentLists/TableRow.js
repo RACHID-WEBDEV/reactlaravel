@@ -12,7 +12,13 @@ class TableRow extends Component {
                 <td>{this.props.data.class}</td>
                 <td>{this.props.data.gender}</td>
                 <td>{this.props.data.phone}</td>
-                <td>calss</td>
+                <td>
+                    <div className="p-2 icons">
+                        <i className="fa fa-phone text-danger" />
+                        <i className="fa fa-adjust text-danger" />
+                        <i className="fa fa-share" />
+                    </div>
+                </td>
             </tr>
         );
     }
