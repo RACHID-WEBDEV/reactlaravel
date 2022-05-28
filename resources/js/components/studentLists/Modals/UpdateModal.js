@@ -17,7 +17,7 @@ class UpdateModal extends Component {
 
     // Updating student Full name state.
 
-    inputstudentFullname = (event) => {
+    inputStudentFullname = (event) => {
         this.setState({
             studentFullname: event.target.value,
         });
@@ -25,7 +25,7 @@ class UpdateModal extends Component {
 
     // Update Student Class state.
 
-    inputstudentClass = (event) => {
+    inputStudentClass = (event) => {
         this.setState({
             studentClass: event.target.value,
         });
@@ -33,7 +33,7 @@ class UpdateModal extends Component {
 
     // Update Student Gender state.
 
-    inputstudentGender = (event) => {
+    inputStudentGender = (event) => {
         this.setState({
             studentGender: event.target.value,
         });
@@ -41,7 +41,7 @@ class UpdateModal extends Component {
 
     // Update Student Phonenumber state.
 
-    inputstudentPhone = (event) => {
+    inputStudentPhone = (event) => {
         this.setState({
             studentPhone: event.target.value,
         });
@@ -140,7 +140,6 @@ class UpdateModal extends Component {
             })
             .then(() => {
                 // console.log(response);
-                // console.log("i am here o");
                 toast.success("Student Updated Successully");
                 setTimeout(() => {
                     location.reload();
@@ -178,7 +177,7 @@ class UpdateModal extends Component {
                                         id="studentFullname"
                                         classname="form-control mb-3"
                                         value={this.state.studentFullname ?? ""}
-                                        onChange={this.inputstudentFullname}
+                                        onChange={this.inputStudentFullname}
                                     />
                                 </div>
 
@@ -188,7 +187,7 @@ class UpdateModal extends Component {
                                         id="studentClass"
                                         classname="form-control mb-3"
                                         value={this.state.studentClass ?? ""}
-                                        onChange={this.inputstudentClass}
+                                        onChange={this.inputStudentClass}
                                     />
                                 </div>
 
@@ -198,7 +197,7 @@ class UpdateModal extends Component {
                                         id="studentGender"
                                         classname="form-control mb-3"
                                         value={this.state.studentGender ?? ""}
-                                        onChange={this.inputstudentGender}
+                                        onChange={this.inputStudentGender}
                                     />
                                 </div>
 
@@ -208,7 +207,7 @@ class UpdateModal extends Component {
                                         id="studentPhone"
                                         classname="form-control mb-3"
                                         value={this.state.studentPhone ?? ""}
-                                        onChange={this.inputstudentPhone}
+                                        onChange={this.inputStudentPhone}
                                     />
                                 </div>
                             </form>

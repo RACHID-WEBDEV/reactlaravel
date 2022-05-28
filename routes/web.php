@@ -19,10 +19,10 @@ Route::get('/get/student/list',
         [StudentController::class, 'getStudentList'])->name('student.list');
 
 Route::post('/get/individual/student/details',
-        [StudentController::class, 'getstudentDetails'])->name('student.details');
+        [StudentController::class, 'getStudentDetails'])->name('student.details');
 
 Route::post('/update/student/data',        
-    [StudentController::class, 'updatestudentData']);
+    [StudentController::class, 'updateStudentData']);
 
 
 Route::delete('/delete/student/data/{student}',

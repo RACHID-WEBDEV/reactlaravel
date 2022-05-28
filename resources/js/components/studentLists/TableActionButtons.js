@@ -1,32 +1,38 @@
 import axios from "axios";
 import React, { Component } from "react";
-// import ViewModal from './Modals/ViewModal';
-// import UpdateModal from './Modals/UpdateModal';
-// import DeleteModal from './Modals/DeleteModal';
+import ViewModal from "./Modals/ViewModal";
+import UpdateModal from "./Modals/UpdateModal";
+import DeleteModal from "./Modals/DeleteModal";
 
 class TableActionButtons extends Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
 
-    //     this.state = {
-    //         currentStudentName: null,
-    //         currentStudentSalary: null,
-    //     }
-    // }
+        this.state = {
+            currentStudentFullname: null,
+            currentStudentClass: null,
+            currentStudentGender: null,
+            currentStudentPhone: null,
+        };
+    }
 
     // Getting Individual student data.
 
-    // getStudentDetails = (id) => {
-    //     axios.post('/get/individual/student/details', {
-    //         studentId: id
-    //     }).then((response) => {
-    //         this.setState({
-    //             currentStudentName: response.data.student_name,
-    //             currentStudentSalary: response.data.salary
-    //         })
-    //         console.log(response.data);
-    //     })
-    // }
+    getStudentDetails = (id) => {
+        axios
+            .post("/get/individual/student/details", {
+                studentId: id,
+            })
+            .then((response) => {
+                this.setState({
+                    currentStudentFullname: response.data.fullname,
+                    currentStudentClass: response.data.class,
+                    currentStudentGender: response.data.gender,
+                    currentStudentPhone: response.data.phone,
+                });
+                console.log(response.data);
+            });
+    };
 
     render() {
         return (
@@ -34,9 +40,11 @@ class TableActionButtons extends Component {
                 <button
                     type="button"
                     className="btn btn-primary"
-                    // data-bs-toggle="modal"
-                    // data-bs-target={'#viewModal'+this.props.eachRowId}
-                    // onClick={ () => { this.getStudentDetails(this.props.eachRowId) }}
+                    data-bs-toggle="modal"
+                    data-bs-target={"#viewModal" + this.props.eachRowId}
+                    onClick={() => {
+                        this.getStudentDetails(this.props.eachRowId);
+                    }}
                 >
                     View
                 </button>
@@ -48,22 +56,27 @@ class TableActionButtons extends Component {
                 <button
                     type="button"
                     className="btn btn-info"
-                    // data-bs-toggle="modal"
-                    // data-bs-target={'#updateModal' + this.props.eachRowId}
-                    // onClick={() => { this.getStudentDetails(this.props.eachRowId) }}
+                    data-bs-toggle="modal"
+                    data-bs-target={"#updateModal" + this.props.eachRowId}
+                    onClick={() => {
+                        this.getStudentDetails(this.props.eachRowId);
+                    }}
                 >
-                    Update
+                    Edit
                 </button>
-                <UpdateModal
+                {/* <UpdateModal
                     modalId={this.props.eachRowId}
                     studentData={this.state}
-                />
+                /> */}
+
                 <button
                     type="button"
                     className="btn btn-danger"
-                    // data-bs-toggle="modal"
-                    // data-bs-target={'#deleteModal' + this.props.eachRowId}
-                    // onClick={() => { this.getStudentDetails(this.props.eachRowId) }}
+                    data-bs-toggle="modal"
+                    data-bs-target={"#deleteModal" + this.props.eachRowId}
+                    onClick={() => {
+                        this.getStudentDetails(this.props.eachRowId);
+                    }}
                 >
                     Delete
                 </button>

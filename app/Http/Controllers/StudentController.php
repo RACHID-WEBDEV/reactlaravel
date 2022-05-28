@@ -25,9 +25,9 @@ class StudentController extends Controller
     }
 
     /**
-     * Get individual employee details.
+     * Get individual student details.
      */
-    public function getEmployeeDetails(Request $request)
+    public function getStudentDetails(Request $request)
     {
         try
         {
@@ -49,20 +49,20 @@ class StudentController extends Controller
         try
         {
            $studentId     = $request->get('studentId');
-           $studentFullName   = $request->get('studentFullName');
+           $studentFullname   = $request->get('studentFullname');
            $studentClass   = $request->get('studentClass');
            $studentGender = $request->get('studentGender');
            $studentPhone = $request->get('studentPhone');
 
             Student::where('id',$studentId)->update([
-                'fullname'   => $studentFullName,
+                'fullname'   => $studentFullname,
                 'class' => $studentClass,
                 'gender' =>  $studentGender,
                 'phone' =>  $studentPhone
             ]);
 
             return response()->json([
-                'fullname'   => $studentName,
+                'fullname'   => $studentFullname,
                 'class' => $studentClass,
                 'gender' =>  $studentGender,
                 'phone' =>  $studentPhone
@@ -76,9 +76,9 @@ class StudentController extends Controller
     }
 
 
-    // Deleting Employee.
+    // Deleting Student.
 
-    public function destroy(Employee$student)
+    public function destroy(Student$student)
     {
         try
         {
@@ -91,26 +91,26 @@ class StudentController extends Controller
     }
 
 
-    // Storing new employee.
+    // Storing new Student.
 
     public function store(Request $request)
     {
         try
         {
-          $studentFullName   = $request->get('studentFullName');
+          $studentFullname   = $request->get('studentFullname');
            $studentClass   = $request->get('studentClass');
            $studentGender = $request->get('studentGender');
            $studentPhone = $request->get('studentPhone');
 
             Student::create([
-                'fullname'   =>  $studentFullName,
+                'fullname'   =>  $studentFullname,
                 'class' => $studentClass,
                 'gender' =>  $studentGender,
                 'phone' =>  $studentPhone
             ]);
 
             return response()->json([
-                'fullname'   =>  $studentFullName,
+                'fullname'   =>  $studentFullname,
                 'class' => $studentClass,
                 'gender' =>  $studentGender,
                 'phone' =>  $studentPhone

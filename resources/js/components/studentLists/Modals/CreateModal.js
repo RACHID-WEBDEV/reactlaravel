@@ -107,7 +107,7 @@ class CreateModal extends Component {
                                             type="text"
                                             id="studentFullname"
                                             className="form-control mb-3"
-                                            placeholder="Fullname Here"
+                                            placeholder="Enter Fullname Here"
                                             onChange={this.inputStudentFullname}
                                         />
                                     </div>
@@ -127,7 +127,7 @@ class CreateModal extends Component {
                                             type="text"
                                             id="studentGender"
                                             className="form-control mb-3"
-                                            placeholder="Student Class Here"
+                                            placeholder="Your Gender"
                                             onChange={this.inputStudentGender}
                                         />
                                         <div className="form-group">
@@ -135,7 +135,7 @@ class CreateModal extends Component {
                                                 type="text"
                                                 id="studentPhone"
                                                 className="form-control mb-3"
-                                                placeholder="Student Class Here"
+                                                placeholder="Enter Phonenumber"
                                                 onChange={
                                                     this.inputStudentPhone
                                                 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TableActionButtons from "./TableActionButtons";
 
 class TableRow extends Component {
     constructor(props) {
@@ -9,15 +10,11 @@ class TableRow extends Component {
             <tr>
                 <th scope="row">{this.props.data.id}</th>
                 <td>{this.props.data.fullname}</td>
-                <td>{this.props.data.class}</td>
+                <td>Primary {this.props.data.class}</td>
                 <td>{this.props.data.gender}</td>
                 <td>{this.props.data.phone}</td>
                 <td>
-                    <div className="p-2 icons">
-                        <i className="fa fa-phone text-danger" />
-                        <i className="fa fa-adjust text-danger" />
-                        <i className="fa fa-share" />
-                    </div>
+                    <TableActionButtons eachRowId={this.props.data.id} />
                 </td>
             </tr>
         );

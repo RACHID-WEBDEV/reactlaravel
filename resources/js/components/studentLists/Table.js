@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import TableRow from "./TableRow";
+import { ToastContainer } from "react-toastify";
+import CreateModal from "./Modals/CreateModal";
 class Table extends Component {
     constructor(props) {
         super(props);
@@ -26,6 +28,8 @@ class Table extends Component {
     render() {
         return (
             <div>
+                <ToastContainer />
+                <CreateModal />
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -41,15 +45,6 @@ class Table extends Component {
                         {this.state.students.map(function (x, i) {
                             return <TableRow key={i} data={x} />;
                         })}
-
-                        {/* <tr>
-                            <th scope="row">3</th>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr> */}
                     </tbody>
                 </table>
             </div>
