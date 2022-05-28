@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
-// import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class UpdateModal extends Component {
     constructor(props) {
@@ -128,8 +128,8 @@ class UpdateModal extends Component {
         return studentUpdate;
     }
 
-    // Updating employee data.
-    updateEmployeeData = () => {
+    // Updating Student data.
+    updateStudentData = () => {
         axios
             .post("/update/student/data", {
                 studentId: this.props.modalId,
@@ -139,7 +139,9 @@ class UpdateModal extends Component {
                 studentPhone: this.state.studentPhone,
             })
             .then(() => {
-                // toast.success("Employee Updated Successully");
+                // console.log(response);
+                // console.log("i am here o");
+                toast.success("Student Updated Successully");
                 setTimeout(() => {
                     location.reload();
                 }, 2500);
@@ -149,78 +151,78 @@ class UpdateModal extends Component {
     render() {
         return (
             <div
-                className="modal fade"
+                classname="modal fade"
                 id={"updateModal" + this.props.modalId}
                 tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
+                <div classname="modal-dialog">
+                    <div classname="modal-content">
+                        <div classname="modal-header">
+                            <h5 classname="modal-title" id="exampleModalLabel">
                                 Student Details
                             </h5>
                             <button
                                 type="button"
-                                className="btn-close"
+                                classname="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                             ></button>
                         </div>
-                        <div className="modal-body">
-                            <form className="form">
-                                <div className="form-group">
+                        <div classname="modal-body">
+                            <form classname="form">
+                                <div classname="form-group">
                                     <input
                                         type="text"
                                         id="studentFullname"
-                                        className="form-control mb-3"
+                                        classname="form-control mb-3"
                                         value={this.state.studentFullname ?? ""}
                                         onChange={this.inputstudentFullname}
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                <div classname="form-group">
                                     <input
                                         type="text"
                                         id="studentClass"
-                                        className="form-control mb-3"
+                                        classname="form-control mb-3"
                                         value={this.state.studentClass ?? ""}
                                         onChange={this.inputstudentClass}
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                <div classname="form-group">
                                     <input
                                         type="text"
                                         id="studentGender"
-                                        className="form-control mb-3"
+                                        classname="form-control mb-3"
                                         value={this.state.studentGender ?? ""}
                                         onChange={this.inputstudentGender}
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                <div classname="form-group">
                                     <input
                                         type="text"
                                         id="studentPhone"
-                                        className="form-control mb-3"
+                                        classname="form-control mb-3"
                                         value={this.state.studentPhone ?? ""}
                                         onChange={this.inputstudentPhone}
                                     />
                                 </div>
                             </form>
                         </div>
-                        <div className="modal-footer">
+                        <div classname="modal-footer">
                             <input
                                 type="submit"
-                                className="btn btn-info"
+                                classname="btn btn-info"
                                 value="Update"
                                 onClick={this.updateStudentData}
                             />
                             <button
                                 type="button"
-                                className="btn btn-secondary"
+                                classname="btn btn-secondary"
                                 data-bs-dismiss="modal"
                             >
                                 Close
